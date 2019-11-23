@@ -474,9 +474,9 @@ namespace iRacingReplayOverlay
             // 
             this.buttonTestNewSettingsDlg.Location = new System.Drawing.Point(12, 42);
             this.buttonTestNewSettingsDlg.Name = "buttonTestNewSettingsDlg";
-            this.buttonTestNewSettingsDlg.Size = new System.Drawing.Size(181, 27);
+            this.buttonTestNewSettingsDlg.Size = new System.Drawing.Size(267, 27);
             this.buttonTestNewSettingsDlg.TabIndex = 1;
-            this.buttonTestNewSettingsDlg.Text = "Configure General (Beta)";
+            this.buttonTestNewSettingsDlg.Text = "Configure General (not working)";
             this.buttonTestNewSettingsDlg.UseVisualStyleBackColor = true;
             this.buttonTestNewSettingsDlg.Click += new System.EventHandler(this.configureVideoCaptureButton_Click_Test);
             // 
