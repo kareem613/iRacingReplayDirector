@@ -360,7 +360,7 @@ namespace iRacingReplayOverlay
             iRacingProcess = new IRacingReplay()
                 .WithEncodingOf(videoBitRate: videoBitRateNumber * 1000000)
                 .WithOverlayFile(overlayFile: sourceVideoTextBox.Text)
-                .OverlayRaceDataOntoVideo(OnTranscoderProgress, OnTranscoderCompleted, highlightVideoOnly.Checked)
+                .OverlayRaceDataOntoVideo(OnTranscoderProgress, OnTranscoderCompleted, highlightVideoOnly.Checked, checkBoxShutdownAfterEncode.Checked)
                 .InTheBackground(errorMessage => {
                     OnTranscoderCompleted();
                     SetTanscodeMessage(trancodingErrorMessage: errorMessage);
@@ -372,7 +372,8 @@ namespace iRacingReplayOverlay
 
         void OnTranscoderProgress(long timestamp, long duration)
         {
-            transcodeProgressBar.Value = Math.Min(transcodeProgressBar.Maximum, (int)(timestamp * transcodeProgressBar.Maximum / duration));
+            ulong ulDuration = (ulong)duration;
+            transcodeProgressBar.Value = Math.Min(transcodeProgressBar.Maximum, (int)((ulong)(timestamp * transcodeProgressBar.Maximum) / ulDuration));
         }
 
         void OnTranscoderCompleted()
@@ -607,6 +608,11 @@ namespace iRacingReplayOverlay
         {
             var settingsDialog = new AdvanceGeneralSettingsDlg();
             settingsDialog.ShowDialog();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
